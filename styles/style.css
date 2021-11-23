@@ -1,0 +1,35 @@
+.maDiv{
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    border: 2px dashed red;
+    flex-wrap: nowrap;
+    padding: 2px;
+    /* overflow-y: hidden; */
+}
+
+li{
+    height: 36px;
+    width: 120px;
+    background-color: gray;
+    list-style: none;
+    color:dark;
+    flex-basis: 20%;
+}
+
+li:nth-child(even){
+    background-color: blue;
+}
+
+li:nth-child(1){
+    flex-grow: 1;
+    flex-shrink: 2;
+}
+li:nth-child(2){
+    flex-grow: 2;
+    flex-shrink: 3;
+}
+li:nth-child(3){
+    flex-grow: 0;
+    flex-shrink: 4;
+}
