@@ -162,8 +162,11 @@ input[type=text]{
     align-items: center;
     justify-content: center;
     background-color: white;
-    padding-top: 15px;
+    padding-top: 5%;
     font-size: 18px;
+    height: 650px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .skill_item{
@@ -257,7 +260,7 @@ input[type=text]{
     background-color: white;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    height: 600px;
+    height: 550px;
 
 }
 
@@ -374,6 +377,10 @@ input[type=text]{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    #skills{
+        padding-top: 40%;
     }
     
     #left_panel{
