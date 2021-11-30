@@ -1,52 +1,8 @@
 <?php
-    $profiler_exps = array(
-        array
-        (
-            "jobTitle" => "Chef des projets technologique",
-            "companyName" => "@Ets. M DE M",
-            "startDate" => "Juillet 2019",
-            "endDate" => "ce jour",
-            "companySite" => "http://mdem.com",
-            "jobDesc" => "Chef du projet annuaire-universel.cm de l'ART",
-        ),
-        array
-        (
-            "jobTitle" => "Fondateur & DT",
-            "companyName" => "@Startup ChickDev",
-            "startDate" => "Juin 2015",
-            "endDate" => "ce jour",
-            "companySite" => "http://chickdev.com",
-            "jobDesc" => "Realisaition de plusieurs sites web et application web et mobiles",
-        ),
-        array
-        (
-            "jobTitle" => "Enseignant",
-            "companyName" => "@Institut Universitaire de la Cote",
-            "startDate" => "Octobre 2011",
-            "endDate" => "ce jour",
-            "companySite" => "http://myiuc.com",
-            "jobDesc" => '"Analyse. UML & MERISE"; "BD/SQL, ORACLE & MySQL";
-                            "Dev. IOS & Android"; "BI & Big Data Talend DI & Hadoop". 1<sup>ere</sup>, 2<sup>eme</sup>, 4<sup>eme</sup> annee',
-        ),
-        array
-        (
-            "jobTitle" => "Developpeur en chef",
-            "companyName" => "@Kayroual group",
-            "startDate" => "Mai 2013",
-            "endDate" => "Juin 2015",
-            "companySite" => "http://kayroual.com",
-            "jobDesc" => "Realisation de multiple projets logiciels et web, inforgraphie, ...",
-        ),
-        array
-        (
-            "jobTitle" => "Responsable commercial",
-            "companyName" => "@BAO Sarl",
-            "startDate" => "Decembre 2012",
-            "endDate" => "Juin 2013",
-            "companySite" => "http://bao-sarl.com",
-            "jobDesc" => "Definition des strategies commerciales,Controle de qualite, suivi...",
-        ),
-    ); 
+    include("./connexionDB.php");
+    $req = "SELECT * FROM profilerexp";
+    $res = $BD -> query($req) or die($BD);
+
 ?>
 
 <section id="pro_exp">
@@ -72,10 +28,10 @@
         </div>
     </div>
     <div class="pro_exp_body">
-        <?php foreach($profiler_exps as $exp) { ?>
+        <?php while($exp = $res->fetch()) { ?>
             <div class="pe_item">
                 <h3> <?php echo $exp['jobTitle'] ?> - <b>
-                    <?php echo $exp['companyName'] ?></b></h3>
+                    @<?php echo $exp['companyName'] ?></b></h3>
                 <p class="duration">De <?php echo $exp['startDate'] ?> a 
                     <?php echo $exp['endDate'] ?> - 
                     <?php echo $exp['companySite'] ?></p>

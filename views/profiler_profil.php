@@ -1,8 +1,8 @@
 <?php
-        $profiler_info = array(
-            "userName" => "TENADJANG STEVE",
-            "profession" => "Architecte logiciel / DevOps",
-        );    
+    include("./connexionDB.php");
+    $req = "SELECT * FROM profilerinfo";
+    $res = $BD -> query($req) or die($BD);
+    while($profiler_info = $res->fetch()){
 ?>
 
 <section id="profil" style="background-image: url('../img/img1.jpg');">
@@ -40,3 +40,4 @@
         </div>
     </div>
 </section>
+<?php } ?>

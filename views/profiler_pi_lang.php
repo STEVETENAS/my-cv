@@ -10,7 +10,9 @@
         "../img/guiness.png",
     ];
 
-    $profiler_lang = ["Francais","Anglais"];
+    include("./connexionDB.php");
+    $req = "SELECT * FROM profilerlang";
+    $res = $BD -> query($req) or die($BD);
 ?>
 
 <section id="pi_lang">
@@ -32,10 +34,10 @@
             <i>Pratiquees en entreprise</i>
         </div>
         <div class="lang_body">
-            <?php foreach($profiler_lang as $lang) { ?>
+            <?php while($lang = $res->fetch()) { ?>
                 <div class="lang_item">
                     <img src="https://img.icons8.com/office/32/000000/checked-2--v1.png"/>
-                    <p><?php echo $lang ?></p>
+                    <p><?php echo $lang['title'] ?></p>
                 </div>
             <?php } ?>
         </div>

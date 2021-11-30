@@ -1,48 +1,7 @@
 <?php
-    $profiler_academic = array(
-        array
-        (
-            "diploma" => "DIPET 2 Electrotechnique",
-            "school" => "ENSET de Douala",
-            "time" => "Aout 2016",
-            "desc" => "Gestion d'eclairage d'une maison (Android + Adruino)",
-        ),
-        array
-        (
-            "diploma" => "Oracle Certified Associate",
-            "school" => "Kentnix Sarl",
-            "time" => "Mars 2009",
-            "desc" => "Oracle database 11g Administration",
-        ),
-        array
-        (
-            "diploma" => "Oracle SQl Certified",
-            "school" => "Kentnix Sarl",
-            "time" => "Decembre 2008",
-            "desc" => "SQl 2, SQL 3, XML",
-        ),
-        array
-        (
-            "diploma" => "Licence professionnelle",
-            "school" => "Douala Institute of Tech.",
-            "time" => "Octobre 2008",
-            "desc" => "Telecommunication & Reseaux",
-        ),
-        array
-        (
-            "diploma" => "DEC / BTS",
-            "school" => "CCNB Dieppe - Canada",
-            "time" => "Septembre 2007",
-            "desc" => "Programmation Appliquee Pour Internet",
-        ),
-        array
-        (
-            "diploma" => "Baccalaureat",
-            "school" => "Lycee Technique de Douala Bassa",
-            "time" => "Aout 2005",
-            "desc" => "Electrotechnique, mention BIEN (major de centre)",
-        ),
-    );    
+    include("./connexionDB.php");
+    $req = "SELECT * FROM pofileracademic";
+    $res = $BD -> query($req) or die($BD);
 ?>
 
 <section id="academic">
@@ -68,14 +27,14 @@
         </div>
     </div>
     <div class="academic_body">
-        <?php foreach($profiler_academic as $aca) { ?> 
+        <?php while($aca = $res->fetch()) { ?> 
             <div class="academic_item">
                 <h3> <?php echo $aca['diploma'] ?> - 
                 <b>@<?php echo $aca['school'] ?></b></h3>
                 <p>
-                    <span class="duration"><?php echo $aca['time'] ?>
+                    <span class="duration"><?php echo $aca['period'] ?>
                     </span> - <span class="desciption">
-                    <i><?php echo $aca['desc'] ?></i></span>
+                    <i><?php echo $aca['diplomaDesc'] ?></i></span>
                 </p>
             </div>
         <?php } ?>

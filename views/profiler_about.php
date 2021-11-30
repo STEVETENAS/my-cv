@@ -1,23 +1,9 @@
 <?php
-$profiler_info = array(
-        "DOB" => "Nee le 20 Octobre 1986",
-        "POO" => "Originaire du Sud Cameroun",
-        "maritalStatus" => "Marie, 02 enfants",
-        "healthStatus" => "Sante RAS",
-        "quater" => "Ndogbong",
-        "town" => "Douala",
-        "country" => "Cameroun",
-        "latitude" => "4.053276",
-        "longitude" => "9.765047",
-        "tel" => "(237) 674 053 983",
-        "telDesc" => "Mobile, Telegram, Whatsapp",
-        "email" => "junioressono @gmail.com",
-        "emailDesc" => "Google+, Twitter, LinkedIn, Github",
-        "email" => "junioressono @gmail.com",
-        "projectCount" => "45",
-        "contractCount" => "31",
-        "expCount" => "12",
-    );
+    include("./connexionDB.php");
+    $req = "SELECT * FROM profilerinfo";
+    $res = $BD -> query($req) or die($BD);
+    while($profiler_info = $res->fetch()){
+
 ?>
 <section id="about">
     <div id="item-1" class="about_item">
@@ -28,7 +14,7 @@ $profiler_info = array(
             style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ecf0f1"><path d="M86,0c0,0 -14.33333,20.7475 -14.33333,28.66667c0,7.91917 6.41417,14.33333 14.33333,14.33333c7.91917,0 14.33333,-6.41417 14.33333,-14.33333c0,-7.91917 -14.33333,-28.66667 -14.33333,-28.66667zM78.83333,50.16667v14.33333h-35.83333c-11.87517,0 -21.5,9.62483 -21.5,21.5v12.55566l3.54134,4.04525c5.44667,6.2135 16.13732,6.22067 21.58398,0l14.30534,-16.33496l14.29134,16.33496c5.44667,6.2135 16.13732,6.22067 21.58398,0l14.29134,-16.33496l14.29134,16.33496c5.44667,6.2135 16.13732,6.22067 21.58398,0l3.52735,-4.04525v-12.55566c0,-11.87517 -9.62483,-21.5 -21.5,-21.5h-35.83333v-14.33333zM60.91667,108.0319l-3.51335,4.01725c-5.44667,6.22067 -13.30682,9.78418 -21.56999,9.78418c-5.117,0 -10.00467,-1.50858 -14.33333,-4.03125v39.86458h129v-39.86458c-4.32867,2.5155 -9.21633,4.03125 -14.33333,4.03125c-8.26317,0 -16.12332,-3.56351 -21.56999,-9.78418l-3.51334,-4.01725l-3.51334,4.01725c-5.44667,6.22067 -13.30682,9.78418 -21.56999,9.78418c-8.26317,0 -16.12332,-3.56351 -21.56999,-9.78418z"></path></g></g>
         </svg>
         <div class="about_item_text">
-            <p><?php echo $profiler_info["DOB"] ?></p>
+            <p>Nee le <?php echo $profiler_info["DOB"] ?></p>
             <p><?php echo $profiler_info["POO"] ?></p>
             <p><?php echo $profiler_info["maritalStatus"] ?> - Sante <?php echo $profiler_info["healthStatus"] ?></p>
         </div>
@@ -83,3 +69,4 @@ $profiler_info = array(
     </div>
 
 </section>
+<?php } ?>
